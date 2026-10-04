@@ -1,0 +1,101 @@
+:root {
+  --ink: #1f2a27;
+  --muted: #67716e;
+  --paper: #fffdf8;
+  --accent: #dc623b;
+  --green: #356a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 10%, #dce8db 0, transparent 30rem),
+    radial-gradient(circle at 92% 90%, #f5d8c7 0, transparent 26rem),
+    #edf1eb;
+  font-family: "DM Sans", sans-serif;
+}
+
+.page-shell { width: min(100%, 440px); }
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 7vw, 42px);
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 28px;
+  background: rgba(255, 253, 248, .88);
+  box-shadow: 0 24px 55px rgba(43, 64, 54, .17);
+  backdrop-filter: blur(12px);
+}
+
+.card-glow { position: absolute; border-radius: 50%; filter: blur(2px); opacity: .55; pointer-events: none; }
+.glow-one { width: 170px; height: 170px; top: -105px; right: -70px; background: #f5d1bf; }
+.glow-two { width: 130px; height: 130px; bottom: -80px; left: -55px; background: #c9ded1; }
+
+.profile-header, .profile-content, .avatar, .skills, .contact-button { position: relative; z-index: 1; }
+.profile-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+.eyebrow {
+  margin: 0;
+  color: var(--green);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.availability { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: .72rem; font-weight: 600; white-space: nowrap; }
+.availability span { width: 8px; height: 8px; border-radius: 50%; background: #5aa67f; box-shadow: 0 0 0 3px #dff1e5; }
+
+.avatar {
+  width: 108px;
+  height: 108px;
+  display: block;
+  margin: 34px 0 24px;
+  border: 5px solid rgba(255, 255, 255, .82);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 10px 22px rgba(42, 93, 80, .24);
+  background: linear-gradient(145deg, #2a5d50, #87ad92);
+}
+
+h1 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(2.1rem, 8vw, 2.7rem); line-height: 1.05; letter-spacing: -.05em; }
+.role { margin: 10px 0 0; color: var(--accent); font-size: .93rem; font-weight: 700; }
+.role span { padding: 0 4px; }
+.bio { max-width: 34ch; margin: 20px 0 0; color: var(--muted); font-size: .98rem; line-height: 1.65; }
+
+.skills { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0; }
+.skills span { padding: 7px 11px; border: 1px solid #d8e0d8; border-radius: 999px; background: rgba(255, 255, 255, .55); color: var(--green); font-size: .74rem; font-weight: 700; }
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 17px 15px 20px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: white;
+  font-size: .96rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.contact-button:hover { transform: translateY(-3px); background: var(--green); box-shadow: 0 10px 20px rgba(53, 106, 90, .25); }
+.contact-button:focus-visible { outline: 3px solid #e5a58c; outline-offset: 4px; }
+.button-arrow { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); font-size: 1.15rem; line-height: 1; }
+
+@media (max-width: 380px) {
+  body { padding: 14px; }
+  .profile-card { border-radius: 22px; }
+  .profile-header { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .avatar { margin-top: 26px; }
+}
